@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>瀑布流-jquery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            /*position: relative;*/
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 8px;
+            /*background-color: #cccccc;*/
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .box {
+            width: 50%;
+            padding: 4px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div id="content" class="clearfix">
+    <!-- box每一个内容块，使用img的onload事件触发瀑布流函数，以免图片尺寸未加载完全影响排列 -->
+    <div class="box"><img src="./images/img2.jpg"></div>
+    <div class="box"><img src="./images/img5.jpg"></div>
+    <div class="box"><img src="./images/img15.jpg"></div>
+    <div class="box"><img src="./images/img16.jpg"></div>
+    <div class="box"><img src="./images/img19.jpg"></div>
+    <div class="box"><img src="./images/img17.jpg"></div>
+    <div class="box"><img src="./images/img20.jpg"></div>
+    <div class="box"><img src="./images/img21.jpg"></div>
+    <div class="box"><img src="./images/img22.jpg"></div>
+    <div class="box"><img src="./images/img23.jpg"></div>
+    <div class="box"><img src="./images/img17.jpg"></div>
+    <div class="box"><img src="./images/img2.jpg"></div>
+    <div class="box"><img src="./images/img5.jpg"></div>
+    <div class="box"><img src="./images/img15.jpg"></div>
+    <div class="box"><img src="./images/img16.jpg"></div>
+    <div class="box"><img src="./images/img19.jpg"></div>
+    <div class="box"><img src="./images/img17.jpg"></div>
+    <div class="box"><img src="./images/img20.jpg"></div>
+    <div class="box"><img src="./images/img21.jpg"></div>
+    <div class="box"><img src="./images/img22.jpg"></div>
+    <div class="box"><img src="./images/img23.jpg"></div>
+
+
+</div>
+<script>
+    var arrBox = $('#content').children('.box');// box对象
+    var arrBoxH = [];//数组，用于存储左侧列中的所有块框相加的高度
+    var arrBoxR = [];//数组，用于存储右侧列中的所有块框相加的高度
+    for (var i = 0; i < arrBox.length; i++) {      //遍历box
+        var boxH = arrBox.eq(i).innerHeight(); //获得box的高度
+        if (i == 0) {
+            arrBox.eq(i).addClass("left"); //第一行中的第一个块box添加左浮动（left是自己写好的有float:left属性的选择器名）
+            arrBoxH[i] = boxH; //第一行中的第一个块box 先添加进数组arrBoxH
+        } else if (i == 1) {
+            arrBox.eq(i).addClass("right");//第一行中的第一个块box添加右浮动
+            arrBoxR[i] = boxH; //第一行中的第二个个块box 先添加进数组arrBoxR
+            //reduce对数组中的所有元素调用指定的回调函数。该回调函数的返回值为累积结果，并且此返回值在下一次调用该回调函数时作为参数提供。
+            //计算左侧列的高度
+        } else {
+            var leftNum = arrBoxH.reduce(function (x, y) {
+                return x + y;
+            });
+
+            //计算右侧列的高度
+            var rightNum = arrBoxR.reduce(function (x, y) {
+                return x + y;
+            });
+            if (leftNum > rightNum) //比较两侧高度大小，决定为该box添加左浮动还是右浮动
+            {
+                arrBox.eq(i).removeClass();
+                arrBox.eq(i).addClass("box right");  //左侧较高为该box添加右浮动
+                arrBoxR[i] = boxH;                     //将高度添加在右侧数组
+            } else {
+                arrBox.eq(i).removeClass();
+                arrBox.eq(i).addClass("box left");  //右侧较高为该box添加左浮动
+                arrBoxH[i] = boxH;                    //将高度添加在左侧数组
+            }
+        }
+    }
+</script>
+</body>
+</html>
