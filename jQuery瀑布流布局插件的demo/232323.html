@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>瀑布流-jquery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/Waterfall.js"></script>
+</head>
+<body>
+<div id="content" class="clearfix">
+    <div class="box"><img src="./images/img2.jpg"></div>
+    <div class="box"><img src="./images/img17.jpg"></div>
+    <div class="box"><img src="./images/img2.jpg"></div>
+    <div class="box"><img src="./images/img5.jpg"></div>
+    <div class="box"><img src="./images/img15.jpg"></div>
+    <div class="box"><img src="./images/img16.jpg"></div>
+    <div class="box"><img src="./images/img19.jpg"></div>
+    <div class="box"><img src="./images/img17.jpg"></div>
+    <div class="box"><img src="./images/img20.jpg"></div>
+    <div class="box"><img src="./images/img15.jpg"></div>
+    <div class="box"><img src="./images/img16.jpg"></div>
+    <div class="box"><img src="./images/img19.jpg"></div>
+    <div class="box"><img src="./images/img17.jpg"></div>
+    <div class="box"><img src="./images/img20.jpg"></div>
+    <div class="box"><img src="./images/img21.jpg"></div>
+    <div class="box"><img src="./images/img22.jpg"></div>
+    <div class="box"><img src="./images/img23.jpg"></div>
+    <div class="box"><img src="./images/img5.jpg"></div>
+    <div class="box"><img src="./images/img15.jpg"></div>
+    <div class="box"><img src="./images/img16.jpg"></div>
+    <div class="box"><img src="./images/img19.jpg"></div>
+    <div class="box"><img src="./images/img17.jpg"></div>
+    <div class="box"><img src="./images/img20.jpg"></div>
+    <div class="box"><img src="./images/img21.jpg"></div>
+    <div class="box"><img src="./images/img22.jpg"></div>
+    <div class="box"><img src="./images/img23.jpg"></div>
+    <div class="box"><img src="./images/img17.jpg"></div>
+    <div class="box"><img src="./images/img2.jpg"></div>
+    <div class="box"><img src="./images/img5.jpg"></div>
+    <div class="box"><img src="./images/img15.jpg"></div>
+    <div class="box"><img src="./images/img16.jpg"></div>
+    <div class="box"><img src="./images/img19.jpg"></div>
+    <div class="box"><img src="./images/img21.jpg"></div>
+    <div class="box"><img src="./images/img22.jpg"></div>
+    <div class="box"><img src="./images/img23.jpg"></div>
+</div>
+<script>
+    $(function () {
+        $(window).load(function () {
+            $('#content').indyMasonry({
+                'clName': '.box',
+                'gap': 0,
+                'mPadding_left': 4,
+                'mPadding_right': 4,
+                'mTop': 0,
+                'mBottom': 6,
+                'column': 2,
+            });
+        });
+    });
+</script>
+</body>
+</html>
