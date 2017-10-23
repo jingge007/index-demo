@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>移动端轮播图</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="images/1.jpg" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/2.jpg" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/3.jpg" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/4.jpg" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/5.jpg" alt="">
+        </div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+    <!-- 如果需要左右导航按钮 -->
+   <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>-->
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper-3.4.2.min.js"></script>
+<script>
+    $(function () {
+        var mySwiper = new Swiper('.swiper-container', {
+           // slidesPerView: 1,                         //网格分布：1为在容器区域出现一张图；2：在容器区域出现两张图；3：在容器区域出现三张图
+            effect: "slide",                           //轮播的效果：slide:左右移动； fade:淡入淡出；cube:立方体；coverflow:立体照片
+            direction: "horizontal",                  //横向滑动
+            loop: true,                              //形成环路（即：可以从最后一张图跳转到第一张图
+            pagination: ".swiper-pagination",       //分页器
+            prevButton: ".swiper-button-prev",     //前进按钮
+            nextButton: ".swiper-button-next",    //后退按钮
+            autoplay: 3000                       //每隔3秒自动播放
+        })
+    })
+</script>
+</body>
+</html>
