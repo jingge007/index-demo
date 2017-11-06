@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>swiper自动轮播图</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide box1"><img src="images/rzjs_02.jpg"></div>
+        <div class="swiper-slide box2"><img src="images/rzjs_05.jpg"></div>
+        <div class="swiper-slide box3"><img src="images/rzjs_06.jpg"></div>
+        <!--<div class="swiper-slide box3"><img src="images/4.jpg"></div>
+        <div class="swiper-slide box3"><img src="images/5.jpg"></div>-->
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+    <!-- 如果需要导航按钮 -->
+    <!--<div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>-->
+
+    <!-- 如果需要滚动条 -->
+    <!--<div class="swiper-scrollbar"></div>-->
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper-3.4.2.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        simulateTouch: false,                          // 阻止鼠标拖曳滑块或图片
+        mode: 'horizontal',                           // horizontal 水平方向滑动，vertical 垂直方向滑动
+        autoplay: 1000,                              // 图片自动轮播的时间
+        loop: true,                                 // 可以让图片循环轮播
+        autoplayDisableOnInteraction: false,       // 在点击之后可以继续实现轮播
+        pagination: ".swiper-pagination",         // 让小圆点显示
+        paginationClickable: true,               // 实现小圆点点击
+        prevButton: ".swiper-button-prev",      // 实现上一页的点击
+        nextButton: ".swiper-button-next",     // 实现下一页的点击
+        effect: "flip"                        // flip 实现3D效果的轮播切换，fade 实现渐变轮播切换的效果
+    })
+
+    $('.swiper-container').mouseenter(function () {      // 鼠标移入停止图片自动轮播
+        mySwiper.stopAutoplay();
+    });
+
+    $('.swiper-container').mouseleave(function () {     // 鼠标移出开启图片自动轮播
+        mySwiper.startAutoplay();
+    })
+</script>
+</body>
+</html>
