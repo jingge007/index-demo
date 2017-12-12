@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>楼层导航的demo</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="nav_box clearfix">
+        <ul>
+            <li><a href="#">淘宝网</a></li>
+            <li><a href="#">天猫商城</a></li>
+            <li><a href="#">聚划算</a></li>
+            <li><a href="#">苏宁易购</a></li>
+            <li><a href="#">京东商城</a></li>
+            <li><a href="#">58同城</a></li>
+            <li><a href="#">腾讯体育</a></li>
+        </ul>
+    </div>
+    <div style="background-color: #739C2F; width: 100%; height: 950px;">内容02323232</div>
+    <div class="content_box">
+        <div class="box" style="background-color: #D8F3C9;">内容1</div>
+        <div class="box" style="background-color: #F4EE94;">内容2</div>
+        <div class="box" style="background-color: #F8B673;">内容3</div>
+        <div class="box" style="background-color: #BFF6E1;">内容4</div>
+        <div class="box" style="background-color: #A2F3F7;">内容5</div>
+        <div class="box" style="background-color: #9AB5E3;">内容6</div>
+        <div class="box" style="background-color: #F7C4E8;">内容7</div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $(function () {
+        var winHeight = $(window).height();      // 可视窗口的高度
+        var navHeight = $('.nav_box').height();  // 头部导航条的高度
+        $(window).scroll(function () {
+            var scrollTop = $(window).scrollTop();    // 滚动条滚动的距离
+            if (scrollTop >= navHeight) {
+                $('.nav_box').addClass('nav_fixed');
+                $('.nav_box li').addClass('libox');
+                /* $('.box:first-child').addClass('boxTop');*/
+
+                $('.box').each(function () {
+                    if (winHeight + scrollTop - $(this).offset().top > winHeight / 2) {
+                        $('.nav_box li').removeClass('active');
+                        $('.nav_box li').eq($(this).index()).addClass('active');
+                    }
+                })
+
+            } else {
+                $('.nav_box').removeClass('nav_fixed');
+                $('.nav_box li').removeClass('libox active');
+                /*  $('.box:first-child').removeClass('boxTop');*/
+            }
+        })
+
+        $('.nav_box li').on('click', function () {
+            var Top = $('.box').eq($(this).index()).offset().top-100;
+            $('html,body').animate({
+                'scrollTop': Top
+            }, 500);
+            $(this).addClass('active').siblings().removeClass('active');
+        })
+    })
+</script>
+</body>
+</html>

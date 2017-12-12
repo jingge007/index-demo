@@ -1,0 +1,41 @@
+.container {
+    padding: 60px 30px 0 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container .nav {
+    width: 20%;
+    height: 700px;
+    border: 1px solid grey;
+}
+
+.container .nav:hover {
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+    box-shadow: 11px 8px 30px rgba(136,137,137, 0.8);
+}
+
+.nav .title {
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    text-align: center;
+    background-color: #EFF0EF;
+    color: #000;
+}
+
+.nav .content {
+    height: 655px;
+    overflow-y: scroll;
+}
+
+.content .item {
+    width: 80%;
+    height: 250px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #9CDCD2;
+    text-align: center;
+    margin: 20px auto;
+}

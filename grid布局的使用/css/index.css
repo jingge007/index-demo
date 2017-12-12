@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 750px;
+    overflow: hidden;
+}
+
+.box1 {
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+}
+
+.box1 span, .box2 span {
+    text-align: center;
+    height: 300px;
+    line-height: 300px;
+    font-size: 60px;
+    border: 2px solid #F7B2FD;
+    box-sizing: border-box;
+}
+
+.box2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 300px;
+    background-color: #feb;
+}

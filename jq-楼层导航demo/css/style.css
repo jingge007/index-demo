@@ -1,0 +1,59 @@
+.container {
+    position: relative;
+    background-color: #D6D6D5;
+    font-family: '微软雅黑';
+}
+
+.nav_box {
+    width: 100%;
+}
+
+.nav_box ul {
+    display: flex;
+    justify-content: center;
+}
+
+.nav_box ul li {
+    background-color: #F3EBD0;
+    width: 220px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.nav_box ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav_fixed {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+}
+
+.nav_box ul li.libox {
+    /*height: 50px;
+    line-height: 50px;*/
+    background-color: rgba(26, 20, 42, 0.66);
+}
+
+.nav_box ul li.active {
+    background-color: #D0F495;
+}
+
+.content_box .box {
+   /* padding-top: 60px;*/
+    width: 100%;
+    height: 1000px;
+    text-align: center;
+    font-size: 55px;
+    color: #000;
+}
+
+.boxTop {
+    margin-top: 250px;
+}
